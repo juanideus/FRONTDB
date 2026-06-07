@@ -22,7 +22,7 @@ export const API_CONFIG = {
     },
     TRANSACCION: {
       CREATE:      'transaction',
-      TOP_FICCION: 'transaction/top10Ficcion2026',
+      TOP_FICCION: 'transaction/fiction',
       VENTAS_ANIO: 'transaction/ventas',
       COMEDIA:     'transaction/Comedia',
       DETAILS:     'transaction/details',

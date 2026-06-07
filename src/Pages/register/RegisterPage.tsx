@@ -62,8 +62,8 @@ export default function Register() {
             <select value={form.Rolid} onChange={(e) => set("Rolid", e.target.value)}
             style={{ width: "100%", padding: "8px 10px", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "var(--radius)", color: "var(--text)", fontSize: 14 }}>
             {/* TODO: cargar roles dinámicamente desde tu backend */}
-            <option value="1">Bibliotecaria</option>
-            <option value="2">Administrador</option>
+            <option value="2">Bibliotecaria</option>
+            <option value="1">Administrador</option>
             <option value="3">Auxiliar</option>
             </select>
 
