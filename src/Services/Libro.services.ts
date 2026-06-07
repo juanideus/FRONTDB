@@ -19,13 +19,13 @@ export const LibroServices={
     },
     deshabilitar: async (id: number): Promise<ApiResponse> => {
         try {
-            const res = await api.put<ApiResponse>(`${API_CONFIG.ENDPOINTS.LIBRO.DESHABILITAR}/${id}`);
+            const res = await api.patch<ApiResponse>(`${API_CONFIG.ENDPOINTS.LIBRO.DESHABILITAR}/${id}`);
             return res.data;
         } catch (e) { return handleError(e); }
     },
     actualizarPrecio: async (payload: UpdatePrecioRequest): Promise<ApiResponse> => {
         try {
-            const res = await api.put<ApiResponse>(
+            const res = await api.patch<ApiResponse>(
                 `${API_CONFIG.ENDPOINTS.LIBRO.ACTUALIZAR_PRECIO}/${payload.id}`,
                 { precio: payload.precio }
             );
@@ -46,7 +46,7 @@ export const LibroServices={
     },
     aumentarCopia: async (id: number): Promise<ApiResponse> => {
         try {
-            const res = await api.post<ApiResponse>(`${API_CONFIG.ENDPOINTS.LIBRO.AUMENTAR_COPIA}/${id}`);
+            const res = await api.patch<ApiResponse>(`${API_CONFIG.ENDPOINTS.LIBRO.AUMENTAR_COPIA}/${id}`);
             return res.data;
         } catch (e) { return handleError(e); }
     }

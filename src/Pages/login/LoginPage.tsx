@@ -3,15 +3,16 @@ import {LoginSerivces} from "../../Services/Auth.services";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [correo, setCorreo] = useState("");
-  const [contrasenia, setContrasenia] = useState("");
+  const [email, setCorreo] = useState("");
+  const [password, setContrasenia] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate()
 
   const handleLogin = async () => {
     setError("");
     try {
-      const response = await LoginSerivces.login({ correo, contrasenia });
+      const response = await LoginSerivces.login({ email, password });
+
       if (response.status == 200   && response.data) {
         navigate("/Dashboard")
       } else {
@@ -31,7 +32,7 @@ export default function Login() {
         <label>Correo</label>
         <input
           type="email"
-          value={correo}
+          value={email}
           onChange={(e) => setCorreo(e.target.value)}
           placeholder="correo@biblioteca.cl"
         />
@@ -39,7 +40,7 @@ export default function Login() {
         <label>Contraseña</label>
         <input
           type="password"
-          value={contrasenia}
+          value={password}
           onChange={(e) => setContrasenia(e.target.value)}
           placeholder="••••••••"
           onKeyDown={(e) => e.key === "Enter" && handleLogin()}

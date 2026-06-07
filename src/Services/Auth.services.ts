@@ -43,10 +43,12 @@ export const LoginSerivces={
     },
     register: async(reg: registerRequest): Promise<registerResponse> =>{
         try{
+            
             const response = await api.post<registerResponse>(
                 API_CONFIG.ENDPOINTS.AUTH.REGISTER,
                 reg
             );
+            
             return response.data;
         }catch(error: unknown){
             if(axios.isAxiosError(error) && error.response?.data){

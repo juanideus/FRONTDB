@@ -1,30 +1,31 @@
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
+  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:8080/',
   ENDPOINTS: {
-      AUTH: {
-          LOGIN:          'trabajador/iniciarSesion',
-          REGISTER:       'trabajador/registrarTrabajador',
-          BIBLIOTECARIAS: 'trabajador/Bibliotecaria',
-      },
-      LIBRO: {
-          CREATE:            'Libro',
-          DESHABILITAR:      'Libro',
-          ACTUALIZAR_PRECIO: 'Libro/precio',
-          OBTENER:           'Libro',
-          RECIENTES:         'Libro/Reciente',
-          AUMENTAR_COPIA:    'Libro/AumentarCopia',
-      },
-      USUARIO: {
-          CREATE:        'usuario',
-          DESHABILITAR:  'usuario',
-          OBTENER:       'usuario',
-          CON_PRESTAMOS: 'usuario/Prestamos',
-      },
-      TRANSACCION: {
-          CREATE:      'transaccion/create',
-          TOP_FICCION: 'transaccion/top10Ficcion2026',
-          VENTAS_ANIO: 'transaccion/ventas',
-          COMEDIA:     'transaccion/Comedia',
-      },
+    AUTH: {
+      LOGIN:          'users/login',
+      REGISTER:       'users/trabajador/registrarTrabajador',
+      BIBLIOTECARIAS: 'users/librains',
+    },
+    LIBRO: {
+      CREATE:            'libros',
+      DESHABILITAR:      'libros/disable',
+      ACTUALIZAR_PRECIO: 'libros',
+      OBTENER:           'libros',
+      RECIENTES:         'libros/recent',
+      AUMENTAR_COPIA:    'libros/updateStock',
+    },
+    USUARIO: {
+      CREATE:        'users/register',
+      DESHABILITAR:  'users/disable',
+      OBTENER:       'users',
+      CON_PRESTAMOS: 'users/loan',
+    },
+    TRANSACCION: {
+      CREATE:      'transaction',
+      TOP_FICCION: 'transaction/top10Ficcion2026',
+      VENTAS_ANIO: 'transaction/ventas',
+      COMEDIA:     'transaction/Comedia',
+      DETAILS:     'transaction/details',
+    },
   },
 };

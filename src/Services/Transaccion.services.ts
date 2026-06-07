@@ -16,6 +16,7 @@ function handleError(error: unknown): ApiResponse {
 export const TransaccionServices = {
     create: async (transaccion: TransaccionRequest): Promise<ApiResponse> => {
         try {
+            console.log('Enviando transacción:', transaccion);
             const res = await api.post<ApiResponse>(API_CONFIG.ENDPOINTS.TRANSACCION.CREATE, transaccion);
             return res.data;
         } catch (e) { return handleError(e); }

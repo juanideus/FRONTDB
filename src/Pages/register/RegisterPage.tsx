@@ -12,7 +12,7 @@ export default function Register() {
         rut: "",
         sueldo: "",
         bono: "",
-        Rolid: "1",
+        Rolid: 2, // Por defecto, asignamos el rol de Bibliotecaria
     });
     const [result, setResult] = useState("");
     const [isError, setIsError] = useState(false);
@@ -27,7 +27,8 @@ export default function Register() {
                 sueldo: Number(form.sueldo),
                 bono: Number(form.bono),
             });
-            if (response.status != 201 && response.data) {
+            console.log("Response: ", response.data);
+            if (response.status == 201 && response.data) {
                 setIsError(false);
                 setResult("Trabajador registrado exitosamente.");
             } else {

@@ -21,19 +21,22 @@ export const UsuarioServices = {
     },
     deshabilitar: async (id: number): Promise<ApiResponse> => {
         try {
-            const res = await api.put<ApiResponse>(`${API_CONFIG.ENDPOINTS.USUARIO.DESHABILITAR}/${id}`);
+            const res = await api.patch<ApiResponse>(`${API_CONFIG.ENDPOINTS.USUARIO.DESHABILITAR}/${id}`);
             return res.data;
         } catch (e) { return handleError(e); }
     },
     obtener: async (): Promise<ApiResponse> => {
         try {
+            
             const res = await api.get<ApiResponse>(API_CONFIG.ENDPOINTS.USUARIO.OBTENER);
             return res.data;
         } catch (e) { return handleError(e); }
     },
     conPrestamos: async (): Promise<ApiResponse> => {
         try {
+            console.log("Obteniendo usuarios con préstamos...");
             const res = await api.get<ApiResponse>(API_CONFIG.ENDPOINTS.USUARIO.CON_PRESTAMOS);
+            console.log("Respuesta recibida: ", res.data);
             return res.data;
         } catch (e) { return handleError(e); }
     },

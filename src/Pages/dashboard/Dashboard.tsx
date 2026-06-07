@@ -82,6 +82,7 @@ function S2_RegistrarUsuario() {
         setError(''); setData(null);
         const res = await UsuarioServices.create({ ...form, estado: 1 });
         if (res.status < 400) setData(res); else setError(res.message);
+       
     };
 
     return (
@@ -134,6 +135,7 @@ function S4_ActualizarPrecio() {
         setError(''); setData(null);
         const res = await LibroServices.actualizarPrecio({ id: Number(form.id), precio: Number(form.precio) });
         if (res.status < 400) setData(res); else setError(res.message);
+        console.log(res.status)
     };
 
     return (
@@ -177,7 +179,7 @@ function S5_DesactivarUsuario() {
 
 // ── S6: Registrar préstamo/venta ──────────────────────────────────────────────
 function S6_RegistrarTransaccion() {
-    const { form, set } = useForm({ Trabajadorlid: '', Usuarioid: '', Copia_libroid: '', tipo: '1' });
+    const { form, set } = useForm({ Trabajadorid: '', Usuarioid: '', Copia_libroid: '', tipo: '1' });
     const [data, setData] = useState<unknown>(null);
     const [error, setError] = useState('');
 
@@ -185,7 +187,7 @@ function S6_RegistrarTransaccion() {
         setError(''); setData(null);
         const esVenta = form.tipo === '1';
         const res = await TransaccionServices.create({
-            Trabajadorlid: Number(form.Trabajadorlid),
+            Trabajadorid: Number(form.Trabajadorid),
             Usuarioid: Number(form.Usuarioid),
             Copia_libroid: form.Copia_libroid.split(',').map(Number),
             es_venta: esVenta,
@@ -197,7 +199,7 @@ function S6_RegistrarTransaccion() {
     return (
         <div className="card">
             <div className="form-grid">
-                <Field label="ID Trabajador"                   value={form.Trabajadorlid} onChange={(v) => set('Trabajadorlid', v)} type="number" />
+                <Field label="ID Trabajador"                   value={form.Trabajadorid} onChange={(v) => set('Trabajadorid', v)} type="number" />
                 <Field label="ID Usuario"                      value={form.Usuarioid}     onChange={(v) => set('Usuarioid', v)} type="number" />
                 <Field label="IDs Copias (separados por coma)" value={form.Copia_libroid} onChange={(v) => set('Copia_libroid', v)} />
                 <div className="field">

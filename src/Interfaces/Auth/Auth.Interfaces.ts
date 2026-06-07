@@ -1,6 +1,6 @@
 export interface loginRequest{
-    correo: string;
-    contrasenia: string;
+    email: string;
+    password: string;
 }
 
 export interface loginResponse{
@@ -21,6 +21,7 @@ export interface registerRequest{
     bono:number;
     rut:string;
     sueldo:number;
+    Rolid: number;
 
 }
 export interface registerResponse{

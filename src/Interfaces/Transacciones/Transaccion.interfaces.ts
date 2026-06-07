@@ -1,5 +1,5 @@
 export interface TransaccionRequest {
-    Trabajadorlid: number;
+    Trabajadorid: number;
     Usuarioid: number;
     Copia_libroid: number[];
     es_venta: boolean;
